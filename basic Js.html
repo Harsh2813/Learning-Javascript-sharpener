@@ -1,0 +1,60 @@
+<!--We use here eventListners and some Dom and fucntions basics-->
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Form</h1>
+    </header>
+
+    <section class="container">
+        <form id="my-form">
+            <h1>Add User</h1>
+            <div class="msg"></div>
+
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" id="email">
+            </div>
+            <input class="btn" type="submit" value="submit">
+        </form>
+        <ul id="users"></ul>
+        <ul class="items">
+            <li class="item">Item1</li>
+            <li class="item">Item 2</li>
+        </ul>
+    </section>
+    <script>
+        let ul = document.querySelector('.items');
+        ul.firstElementChild.innerText = 'Hello';
+        ul.lastElementChild.innerHTML = '<h2>Hello 2</h2>'
+        ul.firstElementChild.style.background = 'green';
+        ul.lastElementChild.style.background = 'yellow';
+        // first type of using eventlistner
+        let btn = document.querySelector('.btn');
+        btn.addEventListener('click', onSubmit); // click ki jagah submit isiliye use ni kiye kyu ki wo form ke andar ke liye use hota h
+        function onSubmit(event){ // aur aise event dena jaruri hota h fucntion ke perimeter me jb events use kre
+            event.preventDefault();// submit hone ke baad console se turant gayb na ho jaye isliye ye line use ki
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            console.log(name);
+            console.log(email);
+        }// second type of we can use eventlisteners
+        document.getElementById('my-form').addEventListener('mouseover', function(){ // aise funciton() hi bs likh sakte h funciton ki jagah koi dusre word ni use krna
+            this.style.backgroundColor = 'darkgray'; // myform ko assing ni kiye kisi me isiliye this. use kiye
+        })// and this is third type by arrow function
+        let myForm = document.getElementById('my-form')
+        myForm.addEventListener('mouseout', (event) => { // arrow fn use kiye isiliye assing kiye form ko kyu ki 
+            myForm.style.backgroundColor = 'orange';// isme this. use ni ho rha tha
+        })
+    </script>
+</body>
+</html>
