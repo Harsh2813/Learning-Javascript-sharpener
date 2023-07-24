@@ -42,8 +42,17 @@
     // for (let i = 0; i < item3.length; i++) {
     //     item3[i].style.fontWeight = 'bold';
     // }
-    let temp = document.getElementsByTagName('li');
-    temp[4].innerText = 'New Item 5';
+    // let temp = document.getElementsByTagName('li');
+    // temp[4].innerText = 'New Item 5';
+
+    let item2 = document.querySelectorAll('.list-group-item');
+    item2[1].style.backgroundColor = 'green';
+    item2[2].style.display = 'none';
+
+    let oddElem = document.querySelectorAll('li:nth-child(odd)');
+    for(let i=0; i<oddElem.length; i++){
+        oddElem[i].style.backgroundColor = 'green';
+    }
   </script>
 </body>
 </html>
