@@ -26,6 +26,7 @@
       <li class="list-group-item">Item 2</li>
       <li class="list-group-item">Item 3</li>
       <li class="list-group-item">Item 4</li>
+      <li>Item 5</li>
     </ul>
    </div>
   </div>
@@ -36,11 +37,13 @@
     // let addItems = document.querySelector('.title');
     // addItems.style.fontWeight = 'bold';
     // addItems.style.color = 'green';
-    let item3 = document.getElementsByTagName('li');
-    item3[2].style.backgroundColor = 'green';
-    for (let i = 0; i < item3.length; i++) {
-        item3[i].style.fontWeight = 'bold';
-    }
+    // let item3 = document.getElementsByTagName('li');
+    // item3[2].style.backgroundColor = 'green';
+    // for (let i = 0; i < item3.length; i++) {
+    //     item3[i].style.fontWeight = 'bold';
+    // }
+    let temp = document.getElementsByTagName('li');
+    temp[4].innerText = 'New Item 5';
   </script>
 </body>
 </html>
