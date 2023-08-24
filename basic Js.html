@@ -41,13 +41,46 @@
         // first type of using eventlistner
         let btn = document.querySelector('.btn');
         btn.addEventListener('click', onSubmit); // click ki jagah submit isiliye use ni kiye kyu ki wo form ke andar ke liye use hota h
-        function onSubmit(event){ // aur aise event dena jaruri hota h fucntion ke perimeter me jb events use kre
+        /*function onSubmit(event){ // aur aise event dena jaruri hota h fucntion ke perimeter me jb events use kre
             event.preventDefault();// submit hone ke baad console se turant gayb na ho jaye isliye ye line use ki
             let name = document.getElementById('name').value;
             let email = document.getElementById('email').value;
             console.log(name);
             console.log(email);
-        }// second type of we can use eventlisteners
+        }*/
+        // Now we will store name and email input in local storge instead of console.log
+        /*function onSubmit(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+            let name = document.getElementById('name').value;
+            let mail = document.getElementById('email').value;
+            // Create an object to store the user's details
+            let userDetails = {
+                name: name,
+                email: mail
+            };
+            // Convert the object to a JSON string
+            let userDetailsJSON = JSON.stringify(userDetails);
+            // Store the JSON string in the local storage
+            localStorage.setItem('userDetails', userDetailsJSON);
+            // Optional: Display a message or perform any other actions after storing
+            console.log('User details stored in local storage:', userDetails);
+            // Clear the input fields
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+        }*/ // By this local storge like= Key: userDetails, Value: {"name":"John Doe","email":"john@example.com"}
+        // or we can just store name and email in key and their input as value
+        function onSubmit(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+            let name = document.getElementById('name').value;
+            let mail = document.getElementById('email').value;
+            localStorage.setItem('name', name);
+            localStorage.setItem('mail', mail);
+            console.log('User details stored in local storage:', name, mail);
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+        }
+
+        // second type of we can use eventlisteners
         document.getElementById('my-form').addEventListener('mouseover', function(){ // aise funciton() hi bs likh sakte h funciton ki jagah koi dusre word ni use krna
             this.style.backgroundColor = 'darkgray'; // myform ko assing ni kiye kisi me isiliye this. use kiye
         })// and this is third type by arrow function
