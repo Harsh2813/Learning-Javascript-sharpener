@@ -67,7 +67,15 @@
             // Clear the input fields
             document.getElementById('name').value = '';
             document.getElementById('email').value = '';
-        } // By this local storge like= Key: userDetails, Value: {"name":"John Doe","email":"john@example.com"}
+            showDetails(userDetails)
+        } 
+        function showDetails(userDetails){
+            let parentElem = document.getElementById('users')
+            let childElem = document.createElement('li') // everytime function call new li will create
+            childElem.textContent = userDetails.name + "-" + userDetails.email
+            parentElem.appendChild(childElem);
+        }
+        // By this local storge like= Key: userDetails, Value: {"name":"John Doe","email":"john@example.com"}
         // or we can just store name and email in key and their input as value but this is not ideal
         /*function onSubmit(event) {
             event.preventDefault(); // Prevent the default form submission behavior
