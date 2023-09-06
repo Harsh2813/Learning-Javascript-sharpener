@@ -73,6 +73,7 @@
             let parentElem = document.getElementById('users')
             let childElem = document.createElement('li') // everytime function call new li will create
             childElem.textContent = userDetails.name + "-" + userDetails.email
+            // creating delete button
             let delBtn = document.createElement('input')
             delBtn.type = 'button'
             delBtn.value = 'delete'
@@ -80,7 +81,19 @@
                 localStorage.removeItem('userDetails');
                 parentElem.removeChild(childElem);
             }
+            // creating edit button
+            let editBtn = document.createElement('input')
+            editBtn.type = 'button'
+            editBtn.value = 'edit';
+            editBtn.onclick = () => {
+                localStorage.removeItem('userDetails')
+                parentElem.removeChild(childElem);
+                // har ek input ke liye function chal rha and li bn rhi to edit and delete btn usi li ke liye bs work karenge sbka alag alag button h kyu ki function ke according append kr rhe baar baar input aane me and isiliye edit krne me niche lines me  .value karne me userDetials ka current li ka name and email jayega input me jis input ke li me bhi click kro current ka button work karega
+                document.getElementById('name').value = userDetails.name;
+                document.getElementById('email').value = userDetails.email;
+            }
             childElem.appendChild(delBtn)
+            childElem.appendChild(editBtn)
             parentElem.appendChild(childElem);
         }
 
