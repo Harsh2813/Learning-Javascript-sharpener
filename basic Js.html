@@ -73,8 +73,17 @@
             let parentElem = document.getElementById('users')
             let childElem = document.createElement('li') // everytime function call new li will create
             childElem.textContent = userDetails.name + "-" + userDetails.email
+            let delBtn = document.createElement('input')
+            delBtn.type = 'button'
+            delBtn.value = 'delete'
+            delBtn.onclick= () =>{
+                localStorage.removeItem('userDetails');
+                parentElem.removeChild(childElem);
+            }
+            childElem.appendChild(delBtn)
             parentElem.appendChild(childElem);
         }
+
         // By this local storge like= Key: userDetails, Value: {"name":"John Doe","email":"john@example.com"}
         // or we can just store name and email in key and their input as value but this is not ideal
         /*function onSubmit(event) {
